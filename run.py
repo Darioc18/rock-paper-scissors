@@ -10,16 +10,15 @@ player_name = input("Insert your name: ")
 
 
 def get_player_choice():
-    while True:
-        try:
-            player_choice = input("Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").lower()
-            if player_choice not in ['r', 'p', 's']:
-                raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
-            choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
-            print(f"Your choice: {choice_mapping[player_choice]}")
-            return player_choice
-        except ValueError as e:
-            print(f"Invalid data: {e}.\n Please try again.\n")
+    try:
+        player_choice = input("Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").lower()
+        if player_choice not in ['r', 'p', 's']:
+            raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
+        choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
+        print(f"Your choice: {choice_mapping[player_choice]}")
+        return player_choice
+    except ValueError as e:
+        print(f"Invalid data: {e}.\n Please try again.\n")
                 
 
 
@@ -31,11 +30,29 @@ def get_computer_choice():
 
 
 
-# def determine_winner():
+def determine_winner(player_choice, computer_choice):
+    if player_choice == computer_choice:
+        print("It's a tie!")
+        return "It's a tie!"
+    elif (player_choice == "r" and computer_choice == "s"):
+        print("You win!")
+        return "You win!"
+    elif (player_choice == "p" and computer_choice == "r"):
+        print("You win!")
+        return "You win!"
+    elif (player_choice == "s" and computer_choice == "p"):
+        print("You win!")
+        return "You win!"
+    else:
+        print("Computer wins!")
+        return "Computer wins!"
+
+
 
 def main():
-    get_player_choice()
-    get_computer_choice()
+    player_choice = get_player_choice()
+    computer_choice = get_computer_choice()
+    determine_winner(player_choice, computer_choice)
     
 
 main()
