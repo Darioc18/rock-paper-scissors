@@ -15,8 +15,7 @@ def get_player_choice():
             player_choice = input("Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").strip().lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors.")
-            print(player_choice)
-            break
+            return player_choice
         except ValueError as e:
             print(f"Invalid data: {e}, please try again.\n")
                 
