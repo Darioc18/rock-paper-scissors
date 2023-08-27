@@ -21,11 +21,17 @@ def get_player_choice():
                 
 
 
-# def get_computer_choice():
+def get_computer_choice():
+    choices = ["rock", "paper", "scissors"]
+    print(random.choice(choices))
+
+
 
 # def determine_winner():
 
 def main():
     get_player_choice()
+    get_computer_choice()
+    
 
 main()
