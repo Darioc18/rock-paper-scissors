@@ -34,9 +34,9 @@ def determine_winner(player_choice, computer_choice):
     if player_choice == computer_choice:
         print("It's a tie!")
         return "It's a tie!"
-    elif (player_choice == "r" and computer_choice == "s") or \
-         (player_choice == "p" and computer_choice == "r") or \
-         (player_choice == "s" and computer_choice == "p"):
+    elif (player_choice == "r" and computer_choice == "scissors") or \
+         (player_choice == "p" and computer_choice == "rock") or \
+         (player_choice == "s" and computer_choice == "paper"):
         print("You win!")
         return "You win!"
     else:
