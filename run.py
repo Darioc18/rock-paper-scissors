@@ -12,18 +12,21 @@ player_name = input("Insert your name: ")
 def get_player_choice():
     while True:
         try:
-            player_choice = input("Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").strip().lower()
+            player_choice = input("Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").lower()
             if player_choice not in ['r', 'p', 's']:
-                raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors.")
+                raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
+            print(f"Your choice: {player_choice}")
             return player_choice
         except ValueError as e:
-            print(f"Invalid data: {e}, please try again.\n")
+            print(f"Invalid data: {e}.\n Please try again.\n")
                 
 
 
 def get_computer_choice():
     choices = ["rock", "paper", "scissors"]
-    print(random.choice(choices))
+    computer_choice = random.choice(choices)
+    print(f"Computer choice: {computer_choice.capitalize()}")
+    return computer_choice
 
 
 
