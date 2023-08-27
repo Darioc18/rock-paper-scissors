@@ -15,7 +15,8 @@ def get_player_choice():
             player_choice = input("Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
-            print(f"Your choice: {player_choice}")
+            choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
+            print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as e:
             print(f"Invalid data: {e}.\n Please try again.\n")
