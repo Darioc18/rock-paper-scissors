@@ -63,13 +63,8 @@ def play_again():
         elif play_again == "n":            
             print("Thank you for playing!")
             return False
-        
-        # try:
-        #     if play_again != "y" and "n":
-        #         raise ValueError(f"you entered '{play_again}'. Choose 'y' for yes or 'n' for no")
-        #     return play_again
-        # except ValueError as e:
-        #     print(f"Invalid data: {e}.\n")
+        else:
+            print("Invalid input")
 
 
 def main():
