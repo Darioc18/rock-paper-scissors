@@ -5,14 +5,25 @@
 import random
 
 print("Welcome to Rock, Paper, Scissors Game")
-player_name = input("Insert your name: ")
-# games_number = input("How many games? ")
+def get_player_name():
+     global player_name
+     while True:
+        try:
+            player_name = input("Insert your name: ")
+            if player_name.strip() == "":
+                raise ValueError("Please insert a valid name")
+            return player_name
+        except ValueError as exc:
+            print(f"Invalid data: {exc}.\n")    
+        
+
+
 
 
 def get_player_choice():
     while True:
         try:
-            player_choice = input(f"Hey {player_name}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").lower()
+            player_choice = input(f"Hey {get_player_name()}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
             choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
