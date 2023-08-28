@@ -6,38 +6,38 @@ import random
 
 print("Welcome to Rock, Paper, Scissors Game")
 def get_player_name():
-     global player_name
      while True:
         try:
-            player_name = input("Insert your name: ")
+            player_name = input("Insert your name: \n")
             if player_name.strip() == "":
-                raise ValueError("Please insert a valid name")
+                raise ValueError("Please insert a valid name. Avoid using only " +
+                                  "spaces or leaving it blank")
             return player_name
         except ValueError as exc:
             print(f"Invalid data: {exc}.\n")    
-        
 
 
 
 
-def get_player_choice():
+def get_player_choice(player_name):
     while True:
         try:
-            player_choice = input(f"Hey {get_player_name()}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): ").lower()
+            player_choice = input(f"Hey {player_name}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): \n").lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
             choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
             print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as e:
-            print(f"Invalid data: {e}.\n Please try again.\n")
+            print(f"Invalid data: {e}.\nPlease try again.\n")
                 
 
 
 def get_computer_choice():
-    choices = ["rock", "paper", "scissors"]
+    choices = ["r", "p", "s"]
     computer_choice = random.choice(choices)
-    print(f"Computer choice: {computer_choice.capitalize()}")
+    choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
+    print(f"Computer choice: {choice_mapping[computer_choice].capitalize()}")
     return computer_choice
 
 
@@ -68,8 +68,10 @@ def play_again():
 
 
 def main():
+    player_name = get_player_name()
+
     while True: 
-        player_choice = get_player_choice()
+        player_choice = get_player_choice(player_name)
         computer_choice = get_computer_choice()
 
         determine_winner(player_choice, computer_choice)
