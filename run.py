@@ -19,10 +19,10 @@ def get_player_name():
 
 
 
-def get_player_choice(player_name):
+def get_player_choice(name):
     while True:
         try:
-            player_choice = input(f"Hey {player_name}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): \n").lower()
+            player_choice = input(f"Hey {name}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): \n").lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
             choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
@@ -55,9 +55,9 @@ def determine_winner(player_choice, computer_choice):
         print("Computer wins!")
         return "Computer wins!"
 
-def play_again():
+def play_again(name):
     while True:
-        play_again = input(f"Hey {player_name}! Do you want to play again? (y/n): ").lower()                  
+        play_again = input(f"Hey {name}! Do you want to play again? (y/n): ").lower()                  
         if play_again == "y":
                 return True
         elif play_again == "n":            
@@ -76,7 +76,7 @@ def main():
 
         determine_winner(player_choice, computer_choice)
 
-        if not play_again():
+        if not play_again(player_name):
             break         
     
 
