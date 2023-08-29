@@ -4,8 +4,10 @@
 
 import os
 import random
+import ascii_art
 
-print("Welcome to Rock, Paper, Scissors Game")
+print(ascii_art.TITLE)
+print("Welcome to Rock, Paper, Scissors Game\n")
 def get_player_name():
      while True:
         try:
@@ -88,6 +90,8 @@ def main():
 
     while True:
         clear_terminal()
+
+        print(ascii_art.TITLE)
         score = 0
         max_games = get_max_games(player_name)
         current_round = 0
