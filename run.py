@@ -46,9 +46,9 @@ def determine_winner(player_choice, computer_choice):
     if player_choice == computer_choice:
         print("It's a tie!")
         return "It's a tie!"
-    elif (player_choice == "r" and computer_choice == "scissors") or \
-         (player_choice == "p" and computer_choice == "rock") or \
-         (player_choice == "s" and computer_choice == "paper"):
+    elif (player_choice == "r" and computer_choice == "s") or \
+         (player_choice == "p" and computer_choice == "r") or \
+         (player_choice == "s" and computer_choice == "p"):
         print("You win!")
         return "You win!"
     else:
@@ -66,12 +66,12 @@ def play_again(name):
         else:
             print("Invalid input")
 
-def get_max_games():
+def get_max_games(name):
     while True:
         try:
-            max_games = int(input("How many games do you want to play? (1, 5, or 10)\n"))
-            if max_games not in [1, 5, 10]:
-                raise ValueError(f"You entered '{max_games}'. Choose 3, 5, or 7")
+            max_games = int(input(f"How many games do you want to play, {name}? (4, 7, or 10)\n"))
+            if max_games not in [4, 7, 10]:
+                raise ValueError(f"you entered '{max_games}'. Choose 4, 7, or 10")
             return max_games
         except ValueError as exc:
             print(f"Invalid data: {exc}.\n Please try again.\n")
@@ -81,7 +81,7 @@ def main():
 
     while True:
         score = 0
-        max_games = get_max_games()
+        max_games = get_max_games(player_name)
         current_round = 0
 
         while current_round < max_games: 
@@ -90,14 +90,24 @@ def main():
 
             result = determine_winner(player_choice, computer_choice)
             if result == "You win!":
-                score += 1
+                score += 100
                 current_round += 1
+                print(f"round {current_round}/{max_games}")
             elif result == "Computer wins!":
-                score += 1
+                score -= 50
                 current_round += 1
+                print(f"round {current_round}/{max_games}")
             else:
                 current_round += 1 
-            print(f"Score: {score}")
+                print(f"round {current_round}/{max_games}")
+            
+            if score < 0:
+                print(f"Score: 0")
+                score = 0
+            else:
+                print(f"Score: {score}")
+            
+        print(f"Final score: {score}")
 
         
         if not play_again(player_name):
