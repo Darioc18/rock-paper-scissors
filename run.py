@@ -2,6 +2,7 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
+import os
 import random
 
 print("Welcome to Rock, Paper, Scissors Game")
@@ -80,6 +81,7 @@ def main():
     player_name = get_player_name()
 
     while True:
+        os.system('cls||clear')
         score = 0
         max_games = get_max_games(player_name)
         current_round = 0
