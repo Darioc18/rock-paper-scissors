@@ -28,7 +28,7 @@ def get_player_choice(name):
             player_choice = input(f"Hey {name}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): \n").lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
-            choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
+            choice_mapping = {'r': 'Rock' + ascii_art.ROCK, 'p': 'Paper' + ascii_art.PAPER, 's': 'Scissors'+ ascii_art.SCISSORS}
             print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as exc:
@@ -39,7 +39,7 @@ def get_player_choice(name):
 def get_computer_choice():
     choices = ["r", "p", "s"]
     computer_choice = random.choice(choices)
-    choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
+    choice_mapping = {'r': 'Rock' + ascii_art.ROCK, 'p': 'Paper' + ascii_art.PAPER, 's': 'Scissors'+ ascii_art.SCISSORS}
     print(f"Computer choice: {choice_mapping[computer_choice].capitalize()}")
     return computer_choice
 
@@ -47,15 +47,15 @@ def get_computer_choice():
 
 def determine_winner(player_choice, computer_choice):
     if player_choice == computer_choice:
-        print("It's a tie!")
+        # print("It's a tie!")
         return "It's a tie!"
     elif (player_choice == "r" and computer_choice == "s") or \
          (player_choice == "p" and computer_choice == "r") or \
          (player_choice == "s" and computer_choice == "p"):
-        print("You win!")
+        # print("You win!")
         return "You win!"
     else:
-        print("Computer wins!")
+        # print("Computer wins!")
         return "Computer wins!"
 
 def play_again(name):
@@ -77,7 +77,7 @@ def get_max_games(name):
                 raise ValueError(f"you entered '{max_games}'. Choose 4, 7, or 10")
             return max_games
         except ValueError as exc:
-            print(f"Invalid data: {exc}.\n Please try again.\n")
+            print(f"Invalid data: {exc}.\nPlease try again.\n")
 
 def clear_terminal():
     """
@@ -104,14 +104,14 @@ def main():
             if result == "You win!":
                 score += 100
                 current_round += 1
-                print(f"round {current_round}/{max_games}")
+                print(f"You won round {current_round}/{max_games}")
             elif result == "Computer wins!":
                 score -= 50
                 current_round += 1
-                print(f"round {current_round}/{max_games}")
+                print(f"Computer won round {current_round}/{max_games}")                
             else:
                 current_round += 1 
-                print(f"round {current_round}/{max_games}")
+                print(f"It's a tie! round {current_round}/{max_games}")                
             
             if score < 0:
                 print(f"Score: 0")
