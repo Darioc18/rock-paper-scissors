@@ -77,11 +77,17 @@ def get_max_games(name):
         except ValueError as exc:
             print(f"Invalid data: {exc}.\n Please try again.\n")
 
+def clear_terminal():
+    """
+    Clears the terminal.
+    """
+    os.system('cls||clear')
+
 def main():
     player_name = get_player_name()
 
     while True:
-        os.system('cls||clear')
+        clear_terminal()
         score = 0
         max_games = get_max_games(player_name)
         current_round = 0
@@ -113,6 +119,7 @@ def main():
 
         
         if not play_again(player_name):
+            clear_terminal()
             break
                 
     
