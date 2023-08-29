@@ -28,8 +28,8 @@ def get_player_choice(name):
             choice_mapping = {'r': 'Rock', 'p': 'Paper', 's': 'Scissors'}
             print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
-        except ValueError as e:
-            print(f"Invalid data: {e}.\nPlease try again.\n")
+        except ValueError as exc:
+            print(f"Invalid data: {exc}.\nPlease try again.\n")
                 
 
 
@@ -66,18 +66,43 @@ def play_again(name):
         else:
             print("Invalid input")
 
+def get_max_games():
+    while True:
+        try:
+            max_games = int(input("How many games do you want to play? (1, 5, or 10)\n"))
+            if max_games not in [1, 5, 10]:
+                raise ValueError(f"You entered '{max_games}'. Choose 3, 5, or 7")
+            return max_games
+        except ValueError as exc:
+            print(f"Invalid data: {exc}.\n Please try again.\n")
 
 def main():
     player_name = get_player_name()
 
-    while True: 
-        player_choice = get_player_choice(player_name)
-        computer_choice = get_computer_choice()
+    while True:
+        score = 0
+        max_games = get_max_games()
+        current_round = 0
 
-        determine_winner(player_choice, computer_choice)
+        while current_round < max_games: 
+            player_choice = get_player_choice(player_name)
+            computer_choice = get_computer_choice()
 
+            result = determine_winner(player_choice, computer_choice)
+            if result == "You win!":
+                score += 1
+                current_round += 1
+            elif result == "Computer wins!":
+                score += 1
+                current_round += 1
+            else:
+                current_round += 1 
+            print(f"Score: {score}")
+
+        
         if not play_again(player_name):
-            break         
+            break
+                
     
 
 main()
