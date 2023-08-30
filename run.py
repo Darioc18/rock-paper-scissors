@@ -85,35 +85,37 @@ def clear_terminal():
     os.system('cls||clear')
 
 def instructions():
-    print("• Players vs Computer: You will be playing against the computer."
+    clear_terminal()
+    print(ascii_art.INSTRUCTIONS)
+    print("\n• Players vs Computer:\n  You will be playing against the computer.\n"
 
-"• Gestures: Each player chooses one of three gestures: Rock, Paper," 
-"or Scissors."
+    "\n• OPTIONS:\n  Each player chooses one of three options: Rock, Paper," 
+    " or Scissors.\n"
 
-"• Rules:"
+    "\n• RULES:\n"
+    "  Rock beats Scissors (Rock crushes Scissors).\n"
+    "  Scissors beats Paper (Scissors cut Paper).\n"
+    "  Paper beats Rock (Paper covers Rock).\n"
 
-"Rock beats Scissors (Rock crushes Scissors)"
-"Scissors beats Paper (Scissors cut Paper)"
-"Paper beats Rock (Paper covers Rock)"
-"• Number of Games: Players can choose to play 4, 7, or 10 games."
+    "\n• NUMBER OF GAMES:\n  Players can choose to play 4, 7, or 10 games.\n"
 
-"• Scoring:"
+    "\n• SCORING:\n"
+    "  If you win a game, you earn 100 points.\n"
+    "  If you lose a game, you lose 50 points.\n"
+    "  If it's a tie, both player and computer get 0 points.\n"
 
-"If you win a game, you earn 100 points."
-"If you lose a game, you lose 50 points."
-"If it's a tie, both player and computer get 0 points."
-
-"Have Fun: Rock-paper-scissors is a simple and fun game of chance!")
+    "\nHave Fun: Rock-paper-scissors is a simple and fun game of chance!\n")
     
 def select_instructions():
-    print("1 • Play  2 • How to play\n")
+    print("1 ► Play")
+    print("2 ► How to play\n")
     selection = input("Select an option: \n")
     if selection == "1":
         return 
     elif selection == "2":
         clear_terminal()
         instructions()
-        input("Press Enter to continue...")
+        input("Press Enter to return to the game...")
         main()
     else:
         print("Invalid selection")    
