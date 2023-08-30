@@ -6,8 +6,8 @@ import os
 import random
 import ascii_art
 
-print(ascii_art.TITLE)
-print("Welcome to Rock, Paper, Scissors Game\n")
+
+
 def get_player_name():
      while True:
         try:
@@ -32,8 +32,7 @@ def get_player_choice(name):
             print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as exc:
-            print(f"Invalid data: {exc}.\nPlease try again.\n")
-                
+            print(f"Invalid data: {exc}.\nPlease try again.\n")             
 
 
 def get_computer_choice():
@@ -85,13 +84,55 @@ def clear_terminal():
     """
     os.system('cls||clear')
 
+def instructions():
+    print("• Players vs Computer: You will be playing against the computer."
+
+"• Gestures: Each player chooses one of three gestures: Rock, Paper," 
+"or Scissors."
+
+"• Rules:"
+
+"Rock beats Scissors (Rock crushes Scissors)"
+"Scissors beats Paper (Scissors cut Paper)"
+"Paper beats Rock (Paper covers Rock)"
+"• Number of Games: Players can choose to play 4, 7, or 10 games."
+
+"• Scoring:"
+
+"If you win a game, you earn 100 points."
+"If you lose a game, you lose 50 points."
+"If it's a tie, both player and computer get 0 points."
+
+"Have Fun: Rock-paper-scissors is a simple and fun game of chance!")
+    
+def select_instructions():
+    print("1 • Play  2 • How to play\n")
+    selection = input("Select an option: \n")
+    if selection == "1":
+        return 
+    elif selection == "2":
+        clear_terminal()
+        instructions()
+        input("Press Enter to continue...")
+        main()
+    else:
+        print("Invalid selection")    
+    
+        
+
 def main():
+    print(ascii_art.TITLE)
+    print("Welcome to Rock, Paper, Scissors Game\n")
+
+    select_instructions()
     player_name = get_player_name()
+
 
     while True:
         clear_terminal()
 
         print(ascii_art.TITLE)
+        
         score = 0
         max_games = get_max_games(player_name)
         current_round = 0
@@ -125,7 +166,5 @@ def main():
         if not play_again(player_name):
             clear_terminal()
             break
-                
-    
-
+        
 main()
