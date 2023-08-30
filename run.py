@@ -13,8 +13,8 @@ def get_player_name():
         try:
             player_name = input("Insert your name: \n")
             if player_name.strip() == "":
-                raise ValueError("Please insert a valid name. Avoid using only " +
-                                  "spaces or leaving it blank")
+                raise ValueError("Please insert a valid name. Avoid using only"
+                                  " spaces or leaving it blank")
             return player_name
         except ValueError as exc:
             print(f"Invalid data: {exc}.\n")    
@@ -25,7 +25,9 @@ def get_player_name():
 def get_player_choice(name):
     while True:
         try:
-            player_choice = input(f"Hey {name}! Enter your choice ('r' for rock, 'p' for paper, 's' for scissors): \n").lower()
+            player_choice = input(f"Hey {name}! Enter your choice"
+                                  " ('r' for rock, 'p' for paper,"
+                                  " 's' for scissors): \n").lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
             choice_mapping = {'r': 'Rock' + ascii_art.ROCK, 'p': 'Paper' + ascii_art.PAPER, 's': 'Scissors'+ ascii_art.SCISSORS}
@@ -62,8 +64,7 @@ def play_again(name):
         play_again = input(f"Hey {name}! Do you want to play again? (y/n): ").lower()                  
         if play_again == "y":
                 return True
-        elif play_again == "n":            
-            print("Thank you for playing!")
+        elif play_again == "n":
             return False
         else:
             print("Invalid input")
@@ -87,7 +88,7 @@ def clear_terminal():
 def instructions():
     clear_terminal()
     print(ascii_art.INSTRUCTIONS)
-    print("\n• Players vs Computer:\n  You will be playing against the computer.\n"
+    print("\n• PLAYER vs COMPUTER:\n  You will be playing against the computer.\n"
 
     "\n• OPTIONS:\n  Each player chooses one of three options: Rock, Paper," 
     " or Scissors.\n"
@@ -113,9 +114,9 @@ def select_instructions():
     if selection == "1":
         return 
     elif selection == "2":
-        clear_terminal()
         instructions()
         input("Press Enter to return to the game...")
+        clear_terminal()
         main()
     else:
         print("Invalid selection")    
@@ -167,6 +168,8 @@ def main():
         
         if not play_again(player_name):
             clear_terminal()
+            print("Thank you for playing!")
             break
-        
-main()
+
+if __name__ == "__main__":
+    main()
