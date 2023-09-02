@@ -5,6 +5,7 @@
 import os
 import random
 import ascii_art
+import time
 
 
 
@@ -31,6 +32,7 @@ def get_player_choice(name):
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
             choice_mapping = {'r': 'Rock' + ascii_art.ROCK, 'p': 'Paper' + ascii_art.PAPER, 's': 'Scissors'+ ascii_art.SCISSORS}
+            shoot()
             print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as exc:
@@ -90,7 +92,7 @@ def instructions():
     print(ascii_art.INSTRUCTIONS)
     print("\n• PLAYER vs COMPUTER:\n  You will be playing against the computer.\n"
 
-    "\n• OPTIONS:\n  Each player chooses one of three options: Rock, Paper," 
+    "\n• OPTIONS:\n  Choose one of three options: Rock, Paper," 
     " or Scissors.\n"
 
     "\n• RULES:\n"
@@ -110,16 +112,28 @@ def instructions():
 def select_instructions():
     print("1 ► Play")
     print("2 ► How to play\n")
-    selection = input("Select an option: \n")
-    if selection == "1":
-        return 
-    elif selection == "2":
-        instructions()
-        input("Press Enter to return to the game...")
-        clear_terminal()
-        main()
-    else:
-        print("Invalid selection")    
+    while True:
+        selection = input("Select an option: \n")
+        if selection == "1":
+            return 
+        elif selection == "2":
+            instructions()
+            input("Press Enter to return to the game...")
+            clear_terminal()
+            main()
+        else:
+            print("Invalid selection")    
+
+def shoot():
+    time.sleep(0.5)
+    print("\nRock")
+    time.sleep(1)
+    print("Paper")
+    time.sleep(1)
+    print("Scissors")
+    time.sleep(1)
+    print("Shoot!...\n")
+    time.sleep(0.5)
     
         
 
@@ -140,7 +154,7 @@ def main():
         max_games = get_max_games(player_name)
         current_round = 0
 
-        while current_round < max_games: 
+        while current_round < max_games:
             player_choice = get_player_choice(player_name)
             computer_choice = get_computer_choice()
 
@@ -158,10 +172,10 @@ def main():
                 print(f"It's a tie! round {current_round}/{max_games}")                
             
             if score < 0:
-                print(f"Score: 0")
+                print(f"Score: 0\n")
                 score = 0
             else:
-                print(f"Score: {score}")
+                print(f"Score: {score}\n")
             
         print(f"Final score: {score}")
 
