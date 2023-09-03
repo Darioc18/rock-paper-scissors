@@ -15,7 +15,7 @@ Remember the rules: Rock beats Scissors, Scissors beats Paper, and Paper beats R
 The project aims to create an engaging Rock, Paper, Scissors game with variable rounds and player-versus-computer gameplay.
 It focuses on implementing and adhering to the classic game rules, ensuring clear user instructions, and a smooth game flow. The game tracks and displays scores for both the player and the computer while maintaining a randomized element in the computer's choices. Comprehensive documentation and error-handling mechanisms are essential for user guidance and a seamless gaming experience. Optional considerations include code optimization and potential enhancements based on user feedback.
 
-## UX
+## User Experience (UX)
 
 ### Target Audience
 
@@ -47,7 +47,7 @@ As a frequent user of the Rock, Paper, Scissors game, I seek a reliable and cons
 
 ## Design
 
-## Color scheme
+### Color scheme
 
 The Rock, Paper, Scissors game incorporates the Colorama library to improve visual clarity and user interaction. The color choices serve specific purposes:
 
@@ -58,3 +58,15 @@ The Rock, Paper, Scissors game incorporates the Colorama library to improve visu
 - LIGHTCYAN_EX: for displaying user and computer choices, as well as the score display.
 
 These color choices aim to enhance the user experience by improving visual distinction and clarity throughout the game.
+
+### Imagery
+
+Incorporating imagery has been a key aspect of the Rock, Paper, Scissors game's visual appeal. [Patrojk](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to create the game title and the instruction page title. Patrojkwas is a tool that convert text to a font in Ascii format.
+
+![Title ASCII](documentation/images/title.PNG)
+
+![Instructions ASCII](documentation/images/instructions.PNG)
+
+ASCII art symbols for Rock, Paper, and Scissors hands were also used. They serve a functional purpose by making it easy for users to identify their choices and grasp the game's fundamental mechanics at a glance.
+
+The careful integration of these ASCII art elements aims to enhance the overall presentation of the game, adding creativity while ensuring clarity and user-friendliness remain uncompromised.
