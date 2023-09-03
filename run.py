@@ -16,9 +16,9 @@ from colorama import init
 init(autoreset=True)
 
 # Constant to style terminal
-R = Fore.RED
-LG = Fore.LIGHTGREEN_EX
-LC = Fore.LIGHTCYAN_EX
+R = Fore.RED # For error messages
+LG = Fore.LIGHTGREEN_EX # For user choices
+LC = Fore.LIGHTCYAN_EX # For user/computer choice and score display
 BOLD = Style.BRIGHT
 RESET = Style.RESET_ALL
 
