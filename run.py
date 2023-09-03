@@ -28,7 +28,7 @@ RESET = Style.RESET_ALL
 def get_player_name():
      while True:
         try:
-            player_name = input("Insert your name: \n")
+            player_name = input("\nInsert your name: \n")
             if player_name.strip() == "":
                 raise ValueError("Please insert a valid name. Avoid using only"
                                   " spaces or leaving it blank")
@@ -42,7 +42,7 @@ def get_player_name():
 def get_player_choice(name):
     while True:
         try:
-            player_choice = input(f"Hey {name}! Enter your choice:"
+            player_choice = input(f"\nHey {name}! Enter your choice:"
                                   + LG + "\nr ► Rock\np ► Paper"
                                   + LG + "\ns ► Scissors: \n" + RESET).lower()
             if player_choice not in ['r', 'p', 's']:
@@ -51,7 +51,7 @@ def get_player_choice(name):
                                  " 's' for scissors")
             choice_mapping = {'r': LC +'Rock' + RESET + ascii_art.ROCK, 'p': LC + 'Paper' + RESET + ascii_art.PAPER, 's': LC + 'Scissors'+ RESET + ascii_art.SCISSORS}
             shoot()
-            print(f"Your choice: {choice_mapping[player_choice]}")
+            print(f"\nYour choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as exc:
             print(R + f"Invalid data: {exc}.\nPlease try again.\n")             
@@ -149,17 +149,42 @@ def select_instructions():
 
 def shoot():
     clear_terminal()
+    time.sleep(0.1)
+
+    print("Rock")
+    print(ascii_art.ROCK)
     time.sleep(0.2)
-    print("\nRock")
-    time.sleep(0.8)
+    clear_terminal()
+    print("Rock")
+    print(" \n")
+    print(ascii_art.ROCK)
+    time.sleep(0.4)
+    clear_terminal()
+
     print("Paper")
-    time.sleep(0.8)
-    print("Scissors\n")
-    time.sleep(0.8)
+    print(ascii_art.ROCK)
+    time.sleep(0.2)
+    clear_terminal()
+    print("Paper")
+    print(" \n")
+    print(ascii_art.ROCK)
+    time.sleep(0.4)
+    clear_terminal()
+
+    print("Scissors")
+    print(ascii_art.ROCK)
+    time.sleep(0.2)
+    clear_terminal()
+    print("Scissors")
+    print(" \n")
+    print(ascii_art.ROCK)
+    time.sleep(0.4)
+    clear_terminal()
+    
     print("Shoot!")
     time.sleep(0.2)
     typed_text_effect("...\n", 0.5)
-    time.sleep(0.2)
+    time.sleep(0.1)
 
 def typed_text_effect(string, sleep):
     for letter in string:
