@@ -18,6 +18,8 @@ init(autoreset=True)
 # Constant to style terminal
 R = Fore.RED
 LG = Fore.LIGHTGREEN_EX
+LC = Fore.LIGHTCYAN_EX
+BOLD = Style.BRIGHT
 RESET = Style.RESET_ALL
 
 
@@ -40,14 +42,14 @@ def get_player_name():
 def get_player_choice(name):
     while True:
         try:
-            player_choice = input(f"Hey {name}! Enter your choice"
-                                  " ('r' for rock, 'p' for paper,"
-                                  " 's' for scissors): \n").lower()
+            player_choice = input(f"Hey {name}! Enter your choice:"
+                                  + LG + "\nr ► Rock\np ► Paper"
+                                  + LG + "\ns ► Scissors: \n" + RESET).lower()
             if player_choice not in ['r', 'p', 's']:
                 raise ValueError(f"You entered '{player_choice}'."
                                  " Choose 'r' for rock, 'p' for paper,"
                                  " 's' for scissors")
-            choice_mapping = {'r': LG +'Rock' + RESET + ascii_art.ROCK, 'p': LG + 'Paper' + RESET + ascii_art.PAPER, 's': LG + 'Scissors'+ RESET + ascii_art.SCISSORS}
+            choice_mapping = {'r': LC +'Rock' + RESET + ascii_art.ROCK, 'p': LC + 'Paper' + RESET + ascii_art.PAPER, 's': LC + 'Scissors'+ RESET + ascii_art.SCISSORS}
             shoot()
             print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
@@ -58,7 +60,7 @@ def get_player_choice(name):
 def get_computer_choice():
     choices = ["r", "p", "s"]
     computer_choice = random.choice(choices)
-    choice_mapping = {'r': LG + 'Rock' + RESET + ascii_art.ROCK, 'p': LG + 'Paper' + RESET + ascii_art.PAPER, 's': LG + 'Scissors' + RESET + ascii_art.SCISSORS}
+    choice_mapping = {'r': LC + 'Rock' + RESET + ascii_art.ROCK, 'p': LC + 'Paper' + RESET + ascii_art.PAPER, 's': LC + 'Scissors' + RESET + ascii_art.SCISSORS}
     print(f"Computer choice: {choice_mapping[computer_choice]}")
     return computer_choice
 
@@ -92,7 +94,9 @@ def get_max_games(name):
     while True:
         try:
             max_games = int(input(f"How many games do you want to play, {name}?"
-                                  " 4, 7, or 10?\n"))
+                                  + LG +"\n4  ► four games"
+                                  "\n7  ► seven games"
+                                  "\n10 ► ten games\n" + RESET))
             if max_games not in [4, 7, 10]:
                 raise ValueError(f"you entered '{max_games}'."
                                  " Choose 4, 7, or 10")
@@ -108,7 +112,7 @@ def clear_terminal():
 
 def instructions():
     clear_terminal()
-    print(ascii_art.INSTRUCTIONS)
+    print(LG + ascii_art.INSTRUCTIONS)
     print("\n• PLAYER vs COMPUTER:\n  You will be playing against the computer.\n"
 
     "\n• OPTIONS:\n  Choose one of three options: Rock, Paper," 
@@ -137,11 +141,11 @@ def select_instructions():
             return 
         elif selection == "2":
             instructions()
-            input("Press Enter to return to the game...")
+            input(LG + "Press Enter to return to the game...")
             clear_terminal()
             main()
         else:
-            print(R + "Invalid selection")    
+            print(R + "Invalid selection. Select '1' to Play or '2' to read How to play.")    
 
 def shoot():
     clear_terminal()
@@ -201,12 +205,12 @@ def main():
                 print(f"It's a tie! round {current_round}/{max_games}")                
             
             if score < 0:
-                print(LG + f"Score: 0\n")
+                print(LC + "Score:" + BOLD + " 0\n")
                 score = 0
             else:
-                print(LG + f"Score: {score}\n")
+                print(LC + "Score:" + BOLD + f" {score}\n")
             
-        print(LG + f"Final score: {score}")
+        print(LC + "Final score:" + BOLD + f" {score}")
 
         
         if not play_again(player_name):
