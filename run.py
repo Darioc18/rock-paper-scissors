@@ -114,24 +114,21 @@ def clear_terminal():
 def instructions():
     clear_terminal()
     print(LG + ascii_art.INSTRUCTIONS)
-    print("\n• PLAYER vs COMPUTER:\n  You will be playing against the computer.\n"
+    print("You will be playing against the computer.\n"
 
-    "\n• OPTIONS:\n  Choose one of three options: Rock, Paper," 
-    " or Scissors.\n"
+    "\nChoose one of three options: Rock, Paper," 
+    " or Scissors:\n"
 
-    "\n• RULES:\n"
-    "  Rock beats Scissors (Rock crushes Scissors).\n"
-    "  Scissors beats Paper (Scissors cut Paper).\n"
-    "  Paper beats Rock (Paper covers Rock).\n"
+    "  ∙ Rock beats Scissors (Rock crushes Scissors)\n"
+    "  ∙ Scissors beats Paper (Scissors cut Paper)\n"
+    "  ∙ Paper beats Rock (Paper covers Rock)\n"
 
-    "\n• NUMBER OF GAMES:\n  Players can choose to play 4, 7, or 10 games.\n"
+    "\nPlayers can choose to play 4, 7, or 10 games:\n"
 
-    "\n• SCORING:\n"
-    "  If you win a game, you earn 100 points.\n"
-    "  If you lose a game, you lose 50 points.\n"
-    "  If it's a tie, both player and computer get 0 points.\n"
-
-    "\nHave Fun: Rock-paper-scissors is a simple and fun game of chance!\n")
+    "  ∙ If you win a game, you earn 100 points\n"
+    "  ∙ If you lose a game, you lose 50 points\n"
+    "  ∙ If it's a tie, both player and computer get 0 points\n"
+    )
     
 def select_instructions():
     print(LG + "1 ► Play")
