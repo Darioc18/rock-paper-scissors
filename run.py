@@ -26,6 +26,7 @@ RESET = Style.RESET_ALL
 
 
 def get_player_name():
+     
      while True:
         try:
             player_name = input("\nInsert your name: \n")
@@ -42,7 +43,7 @@ def get_player_name():
 def get_player_choice(name):
     while True:
         try:
-            player_choice = input(f"\nHey {name}! Enter your choice:"
+            player_choice = input(f"Hey {name}! Enter your choice:"
                                   + LG + "\nr ► Rock\np ► Paper"
                                   + LG + "\ns ► Scissors: \n" + RESET).lower()
             if player_choice not in ['r', 'p', 's']:
@@ -240,7 +241,7 @@ def main():
         
         if not play_again(player_name):
             clear_terminal()
-            print("Thank you for playing!")
+            print("▒▒▒▒▒▒▒▒▒▒░░░░░░ Thank you for playing! ░░░░░░▒▒▒▒▒▒▒▒▒▒▒")
             break
 
 if __name__ == "__main__":
