@@ -2,10 +2,24 @@
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
 
+# Imports
 import os
 import random
 import ascii_art
 import time
+import sys
+from colorama import Fore, Back, Style
+from colorama import init
+
+# Automate colorama color changes reset
+# Solution found at https://stackoverflow.com/questions/43649051/a-way-to-not-have-to-reset-the-color-style-in-colorama-every-time
+init(autoreset=True)
+
+# Constant to style terminal
+R = Fore.RED
+LG = Fore.LIGHTGREEN_EX
+RESET = Style.RESET_ALL
+
 
 
 
@@ -18,7 +32,7 @@ def get_player_name():
                                   " spaces or leaving it blank")
             return player_name
         except ValueError as exc:
-            print(f"Invalid data: {exc}.\n")    
+            print(R + f"Invalid data: {exc}.\n")    
 
 
 
@@ -30,20 +44,22 @@ def get_player_choice(name):
                                   " ('r' for rock, 'p' for paper,"
                                   " 's' for scissors): \n").lower()
             if player_choice not in ['r', 'p', 's']:
-                raise ValueError(f"You entered '{player_choice}'. Choose 'r' for rock, 'p' for paper, 's' for scissors")
-            choice_mapping = {'r': 'Rock' + ascii_art.ROCK, 'p': 'Paper' + ascii_art.PAPER, 's': 'Scissors'+ ascii_art.SCISSORS}
+                raise ValueError(f"You entered '{player_choice}'."
+                                 " Choose 'r' for rock, 'p' for paper,"
+                                 " 's' for scissors")
+            choice_mapping = {'r': LG +'Rock' + RESET + ascii_art.ROCK, 'p': LG + 'Paper' + RESET + ascii_art.PAPER, 's': LG + 'Scissors'+ RESET + ascii_art.SCISSORS}
             shoot()
             print(f"Your choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as exc:
-            print(f"Invalid data: {exc}.\nPlease try again.\n")             
+            print(R + f"Invalid data: {exc}.\nPlease try again.\n")             
 
 
 def get_computer_choice():
     choices = ["r", "p", "s"]
     computer_choice = random.choice(choices)
-    choice_mapping = {'r': 'Rock' + ascii_art.ROCK, 'p': 'Paper' + ascii_art.PAPER, 's': 'Scissors'+ ascii_art.SCISSORS}
-    print(f"Computer choice: {choice_mapping[computer_choice].capitalize()}")
+    choice_mapping = {'r': LG + 'Rock' + RESET + ascii_art.ROCK, 'p': LG + 'Paper' + RESET + ascii_art.PAPER, 's': LG + 'Scissors' + RESET + ascii_art.SCISSORS}
+    print(f"Computer choice: {choice_mapping[computer_choice]}")
     return computer_choice
 
 
@@ -63,7 +79,8 @@ def determine_winner(player_choice, computer_choice):
 
 def play_again(name):
     while True:
-        play_again = input(f"Hey {name}! Do you want to play again? (y/n): ").lower()                  
+        play_again = input(f"Hey {name}!"
+                           " Do you want to play again? (y/n): ").lower()                  
         if play_again == "y":
                 return True
         elif play_again == "n":
@@ -74,12 +91,14 @@ def play_again(name):
 def get_max_games(name):
     while True:
         try:
-            max_games = int(input(f"How many games do you want to play, {name}? (4, 7, or 10)\n"))
+            max_games = int(input(f"How many games do you want to play, {name}?"
+                                  " 4, 7, or 10?\n"))
             if max_games not in [4, 7, 10]:
-                raise ValueError(f"you entered '{max_games}'. Choose 4, 7, or 10")
+                raise ValueError(f"you entered '{max_games}'."
+                                 " Choose 4, 7, or 10")
             return max_games
         except ValueError as exc:
-            print(f"Invalid data: {exc}.\nPlease try again.\n")
+            print(R + f"Invalid data: {exc}.\nPlease try again.\n")
 
 def clear_terminal():
     """
@@ -110,8 +129,8 @@ def instructions():
     "\nHave Fun: Rock-paper-scissors is a simple and fun game of chance!\n")
     
 def select_instructions():
-    print("1 ► Play")
-    print("2 ► How to play\n")
+    print(LG + "1 ► Play")
+    print(LG + "2 ► How to play\n")
     while True:
         selection = input("Select an option: \n")
         if selection == "1":
@@ -122,23 +141,33 @@ def select_instructions():
             clear_terminal()
             main()
         else:
-            print("Invalid selection")    
+            print(R + "Invalid selection")    
 
 def shoot():
-    time.sleep(0.5)
+    clear_terminal()
+    time.sleep(0.2)
     print("\nRock")
-    time.sleep(1)
+    time.sleep(0.8)
     print("Paper")
-    time.sleep(1)
-    print("Scissors")
-    time.sleep(1)
-    print("Shoot!...\n")
-    time.sleep(0.5)
-    
+    time.sleep(0.8)
+    print("Scissors\n")
+    time.sleep(0.8)
+    print("Shoot!")
+    time.sleep(0.2)
+    typed_text_effect("...\n", 0.5)
+    time.sleep(0.2)
+
+def typed_text_effect(string, sleep):
+    for letter in string:
+        time.sleep(sleep)
+        sys.stdout.write(letter)
+        sys.stdout.flush()
+...     
+
         
 
 def main():
-    print(ascii_art.TITLE)
+    print(LG + ascii_art.TITLE)
     print("Welcome to Rock, Paper, Scissors Game\n")
 
     select_instructions()
@@ -148,7 +177,7 @@ def main():
     while True:
         clear_terminal()
 
-        print(ascii_art.TITLE)
+        print(LG + ascii_art.TITLE)
         
         score = 0
         max_games = get_max_games(player_name)
@@ -172,12 +201,12 @@ def main():
                 print(f"It's a tie! round {current_round}/{max_games}")                
             
             if score < 0:
-                print(f"Score: 0\n")
+                print(LG + f"Score: 0\n")
                 score = 0
             else:
-                print(f"Score: {score}\n")
+                print(LG + f"Score: {score}\n")
             
-        print(f"Final score: {score}")
+        print(LG + f"Final score: {score}")
 
         
         if not play_again(player_name):
