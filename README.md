@@ -38,3 +38,23 @@ I'm interested in the option to choose different numbers of rounds for added var
 #### Frequent User:
 
 As a frequent user of the Rock, Paper, Scissors game, I seek a reliable and consistent experience. It would be great to see some advanced features or improvements over time, such as enhanced graphics or additional game modes.
+
+### Flow Chart
+
+[Lucidchart](https://www.lucidchart.com/pages/) was utilized to design the program's flow, resulting in the creation of a flowchart that visually represents the user flow through the application.
+
+![Flowchart](documentation/images/flowchart.png)
+
+## Design
+
+## Color scheme
+
+The Rock, Paper, Scissors game incorporates the Colorama library to improve visual clarity and user interaction. The color choices serve specific purposes:
+
+- RED: used for error messages to make them easily noticeable and help users quickly identify and address any issues.
+
+- LIGHTGREEN_EX: used for user choices, making them distinct and easily recognizable in the game.
+
+- LIGHTCYAN_EX: for displaying user and computer choices, as well as the score display.
+
+These color choices aim to enhance the user experience by improving visual distinction and clarity throughout the game.
