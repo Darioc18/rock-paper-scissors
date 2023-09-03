@@ -154,7 +154,7 @@ def shoot():
 
     print("Rock")
     print(ascii_art.ROCK)
-    time.sleep(0.2)
+    time.sleep(0.3)
     clear_terminal()
     print("Rock")
     print(" \n")
@@ -164,7 +164,7 @@ def shoot():
 
     print("Paper")
     print(ascii_art.ROCK)
-    time.sleep(0.2)
+    time.sleep(0.3)
     clear_terminal()
     print("Paper")
     print(" \n")
@@ -174,7 +174,7 @@ def shoot():
 
     print("Scissors")
     print(ascii_art.ROCK)
-    time.sleep(0.2)
+    time.sleep(0.3)
     clear_terminal()
     print("Scissors")
     print(" \n")
