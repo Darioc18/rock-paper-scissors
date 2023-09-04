@@ -10,41 +10,39 @@ from colorama import Fore, Back, Style
 from colorama import init
 
 # Automate colorama color changes reset
-# Solution found at https://stackoverflow.com/questions/43649051/a-way-to-not-have-to-reset-the-color-style-in-colorama-every-time
 init(autoreset=True)
 
 # Constant to style terminal
-R = Fore.RED # For error messages
-LG = Fore.LIGHTGREEN_EX # For user choices
-LC = Fore.LIGHTCYAN_EX # For user/computer choice and score display
+R = Fore.RED  # For error messages
+LG = Fore.LIGHTGREEN_EX  # For user choices
+LC = Fore.LIGHTCYAN_EX  # For user/computer choice and score display
 BOLD = Style.BRIGHT
 RESET = Style.RESET_ALL
 
 
-
-
 def get_player_name():
-     """
-     Get the user's name input. Implement a while loop to ensure the input
-     is valid, meaning it is not empty or comprised solely of spaces.
-     The loop will continue to prompt the user for input
-     until a valid name is provided.
-     """
-     
-     while True:
+    """
+    Get the user's name input. Implement a while loop to ensure the input
+    is valid, meaning it is not empty or comprised solely of spaces.
+    The loop will continue to prompt the user for input
+    until a valid name is provided.
+    """
+
+    while True:
         try:
             player_name = input("\nInsert your name: \n")
             if player_name.strip() == "":
                 raise ValueError("Please insert a valid name. Avoid using only"
-                                  " spaces or leaving it blank")
+                                 " spaces or leaving it blank")
             return player_name
         except ValueError as exc:
             print(R + f"Invalid data: {exc}.\n")
-            
+
 
 def get_player_choice(name):
     """
-    Get the user's choice for rock, paper or scissors. Implement a while loop to ensure the input is valid.
+    Get the user's choice for rock, paper or scissors. Implement a while loop
+    to ensure the input is valid.
     The loop will continue to prompt the user for input
     until a valid name is provided.
     """
@@ -58,15 +56,15 @@ def get_player_choice(name):
                                  " Choose 'r' for rock, 'p' for paper,"
                                  " 's' for scissors")
             choice_mapping = {
-                'r': LC +'Rock' + RESET + ascii_art.ROCK,
+                'r': LC + 'Rock' + RESET + ascii_art.ROCK,
                 'p': LC + 'Paper' + RESET + ascii_art.PAPER,
-                's': LC + 'Scissors'+ RESET + ascii_art.SCISSORS
+                's': LC + 'Scissors' + RESET + ascii_art.SCISSORS
                 }
             shoot()
             print(f"\nYour choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as exc:
-            print(R + f"Invalid data: {exc}.\nPlease try again.\n")             
+            print(R + f"Invalid data: {exc}.\nPlease try again.\n")
 
 
 def get_computer_choice():
@@ -84,17 +82,20 @@ def get_computer_choice():
     return computer_choice
 
 
-
 def determine_winner(player_choice, computer_choice):
     """
-    Determine the winner of a Rock-Paper-Scissors round between the player and the computer.
+    Determine the winner of a Rock-Paper-Scissors round between the player
+    and the computer.
 
     Args:
-    player_choice (str): The player's choice, which can be 'r' for Rock, 'p' for Paper, or 's' for Scissors.
-    computer_choice (str): The computer's choice, which can be 'r' for Rock, 'p' for Paper, or 's' for Scissors.
+    player_choice (str): The player's choice, which can be 'r' for Rock,
+    'p' forPaper, or 's' for Scissors.
+    computer_choice (str): The computer's choice, which can be 'r' for Rock,
+    'p' for Paper, or 's' for Scissors.
 
     Returns:
-    str: A message indicating the round's result, which can be "It's a tie!" if both choices are the same,
+    str: A message indicating the round's result,
+    which can be "It's a tie!" if both choices are the same,
     "You win!" if the player wins, or "Computer wins!" if the computer wins.
     """
     if player_choice == computer_choice:
@@ -109,23 +110,26 @@ def determine_winner(player_choice, computer_choice):
         # print("Computer wins!")
         return "Computer wins!"
 
+
 def play_again(name):
     """
-    Ask the player if they want to play the game again when the rounds are over.
+    Ask the player if they want to play the game again when the rounds
+    are over.
     Implement a while loop to ensure the input is valid.
     The loop will continue to prompt the user for input
-    until a valid choice is provided. 
+    until a valid choice is provided.
     """
     while True:
         play_again = input(f"Hey {name}!"
-                           " Do you want to play again? (y/n): ").lower()                  
+                           " Do you want to play again? (y/n): ").lower()
         if play_again == "y":
-                return True
+            return True
         elif play_again == "n":
             return False
         else:
             print(R + "Invalid input. Select 'y' to play again or 'n'"
                   " to end the game")
+
 
 def get_max_games(name):
     """
@@ -136,8 +140,8 @@ def get_max_games(name):
     """
     while True:
         try:
-            max_games = int(input(f"How many games do you want to play, {name}?"
-                                  + LG +"\n4  ► four games"
+            max_games = int(input(f"How many games do you want to play, {name}"
+                                  "?" + LG + "\n4  ► four games"
                                   "\n7  ► seven games"
                                   "\n10 ► ten games\n" + RESET))
             if max_games not in [4, 7, 10]:
@@ -146,6 +150,7 @@ def get_max_games(name):
             return max_games
         except ValueError as exc:
             print(R + f"Invalid data: {exc}.\nPlease try again.\n")
+
 
 def clear_terminal():
     """
@@ -156,6 +161,7 @@ def clear_terminal():
     else:
         os.system('clear')
 
+
 def instructions():
     """
     Display game instructions to the player.
@@ -164,20 +170,21 @@ def instructions():
     print(LG + ascii_art.INSTRUCTIONS)
     print("You will be playing against the computer.\n"
 
-    "\nChoose one of three options: Rock, Paper," 
-    " or Scissors:\n"
+          "\nChoose one of three options: Rock, Paper,"
+          " or Scissors:\n"
 
-    "  ∙ Rock beats Scissors (Rock crushes Scissors)\n"
-    "  ∙ Scissors beats Paper (Scissors cut Paper)\n"
-    "  ∙ Paper beats Rock (Paper covers Rock)\n"
+          "  ∙ Rock beats Scissors (Rock crushes Scissors)\n"
+          "  ∙ Scissors beats Paper (Scissors cut Paper)\n"
+          "  ∙ Paper beats Rock (Paper covers Rock)\n"
 
-    "\nPlayers can choose to play 4, 7, or 10 games:\n"
+          "\nPlayers can choose to play 4, 7, or 10 games:\n"
 
-    "  ∙ If you win a game, you earn 100 points\n"
-    "  ∙ If you lose a game, you lose 50 points\n"
-    "  ∙ If it's a tie, both player and computer get 0 points\n"
-    )
-    
+          "  ∙ If you win a game, you earn 100 points\n"
+          "  ∙ If you lose a game, you lose 50 points\n"
+          "  ∙ If it's a tie, both player and computer get 0 points\n"
+          )
+
+
 def select_instructions():
     """
     Display the option to either play the game or read the instructions.
@@ -190,7 +197,7 @@ def select_instructions():
     while True:
         selection = input("Select an option: \n")
         if selection == "1":
-            return 
+            return
         elif selection == "2":
             instructions()
             input(LG + "Press Enter to return to the game...")
@@ -198,7 +205,8 @@ def select_instructions():
             main()
         else:
             print(R + "Invalid selection."
-                  " Select '1' to Play or '2' to read How to play.")    
+                  " Select '1' to Play or '2' to read How to play.")
+
 
 def shoot():
     """
@@ -236,11 +244,12 @@ def shoot():
     print(ascii_art.ROCK)
     time.sleep(0.4)
     clear_terminal()
-    
+
     print("Shoot!")
     time.sleep(0.2)
     typed_text_effect("...\n", 0.5)
     time.sleep(0.1)
+
 
 def typed_text_effect(string, sleep):
     """
@@ -253,9 +262,8 @@ def typed_text_effect(string, sleep):
     for letter in string:
         time.sleep(sleep)
         sys.stdout.write(letter)
-        sys.stdout.flush()     
+        sys.stdout.flush()
 
-        
 
 def main():
     """
@@ -267,12 +275,11 @@ def main():
     select_instructions()
     player_name = get_player_name()
 
-
     while True:
         clear_terminal()
 
         print(LG + ascii_art.TITLE)
-        
+
         score = 0
         max_games = get_max_games(player_name)
         current_round = 0
@@ -289,24 +296,24 @@ def main():
             elif result == "Computer wins!":
                 score -= 50
                 current_round += 1
-                print(f"Computer won round {current_round}/{max_games}")                
+                print(f"Computer won round {current_round}/{max_games}")
             else:
-                current_round += 1 
-                print(f"It's a tie! round {current_round}/{max_games}")                
-            
+                current_round += 1
+                print(f"It's a tie! round {current_round}/{max_games}")
+
             if score < 0:
                 print(LC + "Score:" + BOLD + " 0\n")
                 score = 0
             else:
                 print(LC + "Score:" + BOLD + f" {score}\n")
-            
+
         print(LC + "Final score:" + BOLD + f" {score}")
 
-        
         if not play_again(player_name):
             clear_terminal()
             print("Thank you for playing!")
             break
+
 
 if __name__ == "__main__":
     main()
