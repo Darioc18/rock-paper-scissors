@@ -25,9 +25,10 @@ RESET = Style.RESET_ALL
 
 def get_player_name():
      """
-     Get the user's name input. Implement a while loop to ensure the input is valid, 
-     meaning it is not empty or comprised solely of spaces.
-     The loop will continue to prompt the user for input until a valid name is provided.
+     Get the user's name input. Implement a while loop to ensure the input
+     is valid, meaning it is not empty or comprised solely of spaces.
+     The loop will continue to prompt the user for input
+     until a valid name is provided.
      """
      
      while True:
@@ -51,7 +52,11 @@ def get_player_choice(name):
                 raise ValueError(f"You entered '{player_choice}'."
                                  " Choose 'r' for rock, 'p' for paper,"
                                  " 's' for scissors")
-            choice_mapping = {'r': LC +'Rock' + RESET + ascii_art.ROCK, 'p': LC + 'Paper' + RESET + ascii_art.PAPER, 's': LC + 'Scissors'+ RESET + ascii_art.SCISSORS}
+            choice_mapping = {
+                'r': LC +'Rock' + RESET + ascii_art.ROCK,
+                'p': LC + 'Paper' + RESET + ascii_art.PAPER,
+                's': LC + 'Scissors'+ RESET + ascii_art.SCISSORS
+                }
             shoot()
             print(f"\nYour choice: {choice_mapping[player_choice]}")
             return player_choice
@@ -62,7 +67,11 @@ def get_player_choice(name):
 def get_computer_choice():
     choices = ["r", "p", "s"]
     computer_choice = random.choice(choices)
-    choice_mapping = {'r': LC + 'Rock' + RESET + ascii_art.ROCK, 'p': LC + 'Paper' + RESET + ascii_art.PAPER, 's': LC + 'Scissors' + RESET + ascii_art.SCISSORS}
+    choice_mapping = {
+        'r': LC + 'Rock' + RESET + ascii_art.ROCK,
+        'p': LC + 'Paper' + RESET + ascii_art.PAPER,
+        's': LC + 'Scissors' + RESET + ascii_art.SCISSORS
+        }
     print(f"Computer choice: {choice_mapping[computer_choice]}")
     return computer_choice
 
@@ -90,7 +99,8 @@ def play_again(name):
         elif play_again == "n":
             return False
         else:
-            print("Invalid input")
+            print(R + "Invalid input. Select 'y' to play again or 'n'"
+                  " to end the game")
 
 def get_max_games(name):
     while True:
