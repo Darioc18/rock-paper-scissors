@@ -1,6 +1,6 @@
 # Rock Paper Scissors
 
-![Mockup image](documentation\images\homepage.PNG)
+![Mockup image](documentation\images\homepage.png)
 
 Rock, Paper, Scissors Game: Challenge the computer to a classic game of Rock, Paper, Scissors.
 
@@ -65,9 +65,9 @@ These color choices aim to enhance the user experience by improving visual disti
 
 Incorporating imagery has been a key aspect of the Rock, Paper, Scissors game's visual appeal. [Patrojk](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to create the game title and the instruction page title. Patrojkwas is a tool that convert text to a font in Ascii format.
 
-![Title ASCII](documentation/images/title.PNG)
+![Title ASCII](documentation/images/title.png)
 
-![Instructions ASCII](documentation/images/instructions.PNG)
+![Instructions ASCII](documentation/images/instructions.png)
 
 ASCII art symbols for Rock, Paper, and Scissors hands were also used. They serve a functional purpose by making it easy for users to identify their choices and grasp the game's fundamental mechanics at a glance.
 
@@ -84,7 +84,7 @@ On the main screen of the Rock Paper Scissors game, players are greeted with a m
 
 If a player chooses an invalid option from the menu, the system displays an error message. It then guides the player on how to make a correct selection, prompting them to choose again until a valid choice is made.
 
-![Invalid Menu input](documentation/images/invalid-selection.PNG)
+![Invalid Menu input](documentation/images/invalid-selection.png)
 
 ### How to play
 
