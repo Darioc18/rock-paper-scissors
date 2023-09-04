@@ -38,10 +38,8 @@ def get_player_name():
                                   " spaces or leaving it blank")
             return player_name
         except ValueError as exc:
-            print(R + f"Invalid data: {exc}.\n")    
-
-
-
+            print(R + f"Invalid data: {exc}.\n")
+            
 
 def get_player_choice(name):
     while True:
@@ -112,7 +110,10 @@ def clear_terminal():
     """
     Clears the terminal.
     """
-    os.system('cls||clear')
+    if os.name == "nt":
+        os.system('cls')
+    else:
+        os.system('clear')
 
 def instructions():
     clear_terminal()
