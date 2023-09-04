@@ -8,7 +8,9 @@ In this Python game, you can choose to play 4, 7, or 10 rounds. Test your luck a
 
 Remember the rules: Rock beats Scissors, Scissors beats Paper, and Paper beats Rock. Win a game to earn 100 points, lose and lose 50 points, or tie with the computer for no points.
 
-[Rock Paper Scissors Live Page](https://rock-paper-scissors-pp3-b3c7dd81e311.herokuapp.com/)
+## Live site
+
+[Rock Paper Scissors](https://rock-paper-scissors-pp3-b3c7dd81e311.herokuapp.com/) _(Ctrl + click to open in a new tab)_
 
 ## Project Goals
 
