@@ -70,3 +70,48 @@ Incorporating imagery has been a key aspect of the Rock, Paper, Scissors game's 
 ASCII art symbols for Rock, Paper, and Scissors hands were also used. They serve a functional purpose by making it easy for users to identify their choices and grasp the game's fundamental mechanics at a glance.
 
 The careful integration of these ASCII art elements aims to enhance the overall presentation of the game, adding creativity while ensuring clarity and user-friendliness remain uncompromised.
+
+## Features
+
+#### Game Menu
+
+On the main screen of the Rock Paper Scissors game, players are greeted with a menu offering two options:
+
+- Play: This option starts a new game.
+- How to Play: Here, players can access instructions explaining how to participate in the game.
+
+If a player chooses an invalid option from the menu, the system displays an error message. It then guides the player on how to make a correct selection, prompting them to choose again until a valid choice is made.
+
+![Invalid Menu input](documentation/images/invalid-selection.PNG)
+
+### How to play
+
+The game includes an instruction section that players can open. This section provides clear guidance on playing against the computer, making choices (Rock, Paper, or Scissors), and understanding the scoring system based on game results.
+
+![Instructions](documentation/images/instructions-text.png)
+
+#### Player Name Input
+
+In the player name input section, the player is asked to enter their name. If the name entered consists only of spaces or is left blank, an error message will appear, prompting the player to avoid using only spaces or leaving the field empty.
+
+![Invalid Name input](documentation/images/invalid-name.png)
+
+#### Number of Games Input
+
+Players can select to play 4, 7, or 10 games giving them flexibility in tailoring the length of their gaming session to their liking.
+
+If an incorrect input is entered, a data validation check will run before allowing the program to proceed further. This validation process serves to identify any errors. In the event of wron input the system will promptly display a helpful error message, explaining the issue to the user, and guiding them on how to rectify it, ensuring a smooth and user-friendly experience.
+
+![Invalid Number of Games input](documentation/images/invalid-games-number.png)
+
+### Score
+
+The game's score system awards players 100 points for a win, deducts 50 points for a loss, and provides 0 points for a tie. Importantly, it has been designed to prevent scores from going below zero.
+
+### End of game
+
+At the end of the game, the player is asked if they want to play again with a yes or no question. If they choose "yes," they are redirected to the game setup to choose the number of games for a new session. If they select "no," the game ends, and a thank you message is displayed.
+
+### Future Implementations
+
+As a potential future improvement, I plan to implement a leaderboard feature in the game.
