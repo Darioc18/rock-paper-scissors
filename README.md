@@ -138,4 +138,4 @@ As a potential future improvement, I plan to implement a leaderboard feature in 
 
 ## Testing
 
-You can find a detailed summary of all testing procedures in the [TESTING.md](TESTING.md) file.
+Find a detailed summary of all testing procedures in the [TESTING.md](TESTING.md) file.
