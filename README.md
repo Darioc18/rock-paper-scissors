@@ -115,3 +115,27 @@ At the end of the game, the player is asked if they want to play again with a ye
 ### Future Implementations
 
 As a potential future improvement, I plan to implement a leaderboard feature in the game.
+
+## Technologies used
+
+- Language
+  - The primary language employed in this project is [Python](https://www.python.org/). Link to the [code](https://github.com/Darioc18/rock-paper-scissors/blob/main/run.py)
+- Frameworks and Programs
+  - [Git](https://developer.mozilla.org/en-US/docs/Glossary/Git)
+  - [Github Pages](https://github.com/)
+  - [Visual Studio Code](https://code.visualstudio.com/)
+  - [Heroku](https://heroku.com/)
+  - [Google Dev Tools](https://developer.chrome.com/docs/devtools/open/)
+  - [Google Lighthouse](https://developer.chrome.com/docs/lighthouse/overview/)
+  - [Code Institutes Pep8 Checker](https://pep8ci.herokuapp.com/)
+  - [Lucid Chart](https://www.lucidchart.com/)
+  - [Favicon.io](https://favicon.io/)
+- Modules Imported
+  - [os](https://docs.python.org/3/library/os.html) - Provides access to the operating system, allowing interaction with files and system-specific functions.
+  - [time](https://docs.python.org/3/library/time.html) - Enables the introduction of sleep delays in the terminal user interface to control timing.
+  - [colorma](https://pypi.org/project/colorama/) - Enhances terminal text with color.
+  - [sys](https://docs.python.org/3/library/sys.html) - Controls text animations, including sleep times between characters, for visual effects in the game.
+
+## Testing
+
+You can find a detailed summary of all testing procedures in the [TESTING.md](TESTING.md) file.

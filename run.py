@@ -143,7 +143,8 @@ def select_instructions():
             clear_terminal()
             main()
         else:
-            print(R + "Invalid selection. Select '1' to Play or '2' to read How to play.")    
+            print(R + "Invalid selection."
+                  " Select '1' to Play or '2' to read How to play.")    
 
 def shoot():
     clear_terminal()
@@ -238,7 +239,7 @@ def main():
         
         if not play_again(player_name):
             clear_terminal()
-            print("▒▒▒▒▒▒▒▒▒▒░░░░░░ Thank you for playing! ░░░░░░▒▒▒▒▒▒▒▒▒▒▒")
+            print("Thank you for playing!")
             break
 
 if __name__ == "__main__":
