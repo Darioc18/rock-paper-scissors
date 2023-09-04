@@ -43,6 +43,11 @@ def get_player_name():
             
 
 def get_player_choice(name):
+    """
+    Get the user's choice for rock, paper or scissors. Implement a while loop to ensure the input is valid.
+    The loop will continue to prompt the user for input
+    until a valid name is provided.
+    """
     while True:
         try:
             player_choice = input(f"Hey {name}! Enter your choice:"
@@ -65,6 +70,9 @@ def get_player_choice(name):
 
 
 def get_computer_choice():
+    """
+    Get a random choice - rock, paper or scissors - from the computer
+    """
     choices = ["r", "p", "s"]
     computer_choice = random.choice(choices)
     choice_mapping = {
@@ -78,6 +86,17 @@ def get_computer_choice():
 
 
 def determine_winner(player_choice, computer_choice):
+    """
+    Determine the winner of a Rock-Paper-Scissors round between the player and the computer.
+
+    Args:
+    player_choice (str): The player's choice, which can be 'r' for Rock, 'p' for Paper, or 's' for Scissors.
+    computer_choice (str): The computer's choice, which can be 'r' for Rock, 'p' for Paper, or 's' for Scissors.
+
+    Returns:
+    str: A message indicating the round's result, which can be "It's a tie!" if both choices are the same,
+    "You win!" if the player wins, or "Computer wins!" if the computer wins.
+    """
     if player_choice == computer_choice:
         # print("It's a tie!")
         return "It's a tie!"
@@ -91,6 +110,12 @@ def determine_winner(player_choice, computer_choice):
         return "Computer wins!"
 
 def play_again(name):
+    """
+    Ask the player if they want to play the game again when the rounds are over.
+    Implement a while loop to ensure the input is valid.
+    The loop will continue to prompt the user for input
+    until a valid choice is provided. 
+    """
     while True:
         play_again = input(f"Hey {name}!"
                            " Do you want to play again? (y/n): ").lower()                  
@@ -103,6 +128,12 @@ def play_again(name):
                   " to end the game")
 
 def get_max_games(name):
+    """
+    Get the number of games the player wants to play.
+    Implement a while loop to ensure the input
+    is valid. The loop will continue to prompt the user for input
+    until a valid name is provided.
+    """
     while True:
         try:
             max_games = int(input(f"How many games do you want to play, {name}?"
@@ -126,6 +157,9 @@ def clear_terminal():
         os.system('clear')
 
 def instructions():
+    """
+    Display game instructions to the player.
+    """
     clear_terminal()
     print(LG + ascii_art.INSTRUCTIONS)
     print("You will be playing against the computer.\n"
@@ -145,6 +179,12 @@ def instructions():
     )
     
 def select_instructions():
+    """
+    Display the option to either play the game or read the instructions.
+    Implement a while loop to ensure the input
+    is valid. The loop will continue to prompt the user for input
+    until a valid name is provided.
+    """
     print(LG + "1 ► Play")
     print(LG + "2 ► How to play\n")
     while True:
@@ -161,6 +201,9 @@ def select_instructions():
                   " Select '1' to Play or '2' to read How to play.")    
 
 def shoot():
+    """
+    Display a visual "Rock, Paper, Scissors, Shoot!" animation in the terminal.
+    """
     clear_terminal()
     time.sleep(0.1)
 
@@ -200,6 +243,13 @@ def shoot():
     time.sleep(0.1)
 
 def typed_text_effect(string, sleep):
+    """
+    Display text with a typewriter-like effect in the terminal.
+
+    Args:
+    string (str): The text to display.
+    sleep (float): The time to wait between displaying each character.
+    """
     for letter in string:
         time.sleep(sleep)
         sys.stdout.write(letter)
@@ -208,6 +258,9 @@ def typed_text_effect(string, sleep):
         
 
 def main():
+    """
+    The main function that runs the Rock, Paper, Scissors game.
+    """
     print(LG + ascii_art.TITLE)
     print("Welcome to Rock, Paper, Scissors Game\n")
 
