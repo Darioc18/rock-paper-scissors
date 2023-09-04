@@ -1,8 +1,6 @@
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+# Terminal of 80 characters wide and 24 rows high
 
-# Imports
+# Import libraries
 import os
 import random
 import ascii_art
@@ -26,6 +24,11 @@ RESET = Style.RESET_ALL
 
 
 def get_player_name():
+     """
+     Get the user's name input. Implement a while loop to ensure the input is valid, 
+     meaning it is not empty or comprised solely of spaces.
+     The loop will continue to prompt the user for input until a valid name is provided.
+     """
      
      while True:
         try:
@@ -189,8 +192,7 @@ def typed_text_effect(string, sleep):
     for letter in string:
         time.sleep(sleep)
         sys.stdout.write(letter)
-        sys.stdout.flush()
-...     
+        sys.stdout.flush()     
 
         
 
