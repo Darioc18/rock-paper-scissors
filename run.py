@@ -60,7 +60,7 @@ def get_player_choice(name):
                 'p': LC + 'Paper' + RESET + ascii_art.PAPER,
                 's': LC + 'Scissors' + RESET + ascii_art.SCISSORS
                 }
-            shoot()
+            shoot_animation()
             print(f"\nYour choice: {choice_mapping[player_choice]}")
             return player_choice
         except ValueError as exc:
@@ -208,7 +208,7 @@ def select_instructions():
                   " Select '1' to Play or '2' to read How to play.")
 
 
-def shoot():
+def shoot_animation():
     """
     Display a visual "Rock, Paper, Scissors, Shoot!" animation in the terminal.
     """
