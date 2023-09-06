@@ -247,7 +247,7 @@ def shoot_animation():
 
     print("Shoot!")
     time.sleep(0.2)
-    typed_text_effect("...\n", 0.5)
+    typed_text_effect("...\n", 0.3)
     time.sleep(0.1)
 
 
