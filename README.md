@@ -1,6 +1,6 @@
 # Rock Paper Scissors
 
-![Mockup image](documentation/images/homepage.png)
+![Mockup image](documentation/images/home-page.png)
 
 Rock, Paper, Scissors Game: Challenge the computer to a classic game of Rock, Paper, Scissors.
 
@@ -84,7 +84,7 @@ On the main screen of the Rock Paper Scissors game, players are greeted with a m
 
 If a player chooses an invalid option from the menu, the system displays an error message. It then guides the player on how to make a correct selection, prompting them to choose again until a valid choice is made.
 
-![Invalid Menu input](documentation/images/invalid-selection.png)
+![Invalid Menu input](documentation/images/invalid-input.png)
 
 ### How to play
 
