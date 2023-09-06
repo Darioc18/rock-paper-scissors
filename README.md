@@ -1,10 +1,10 @@
 # Rock Paper Scissors
 
-![Mockup image](documentation\images\homepage.png)
+![Mockup image](documentation/images/homepage.png)
 
 Rock, Paper, Scissors Game: Challenge the computer to a classic game of Rock, Paper, Scissors.
 
-In this Python game, you can choose to play 4, 7, or 10 rounds. Test your luck as you pick between Rock, Paper, and Scissors.
+In this Python game, you can choose to play 4, 7, or 10 rounds.
 
 Remember the rules: Rock beats Scissors, Scissors beats Paper, and Paper beats Rock. Win a game to earn 100 points, lose and lose 50 points, or tie with the computer for no points.
 
@@ -14,14 +14,14 @@ Remember the rules: Rock beats Scissors, Scissors beats Paper, and Paper beats R
 
 ## Project Goals
 
-The project aims to create an engaging Rock, Paper, Scissors game with variable rounds and player-versus-computer gameplay.
-It focuses on implementing and adhering to the classic game rules, ensuring clear user instructions, and a smooth game flow. The game tracks and displays scores for both the player and the computer while maintaining a randomized element in the computer's choices. Comprehensive documentation and error-handling mechanisms are essential for user guidance and a seamless gaming experience. Optional considerations include code optimization and potential enhancements based on user feedback.
+The project aims to create a Rock, Paper, Scissors game with variable rounds and player-versus-computer gameplay.
+It focuses on implementing and adhering to the classic game rules, ensuring clear user instructions, and a smooth game flow. The game tracks and displays scores for both the player and the computer. Documentation and error-handling mechanisms are essential for user guidance and a seamless gaming experience. Optional considerations include code optimization and potential enhancements based on user feedback.
 
 ## User Experience (UX)
 
 ### Target Audience
 
-The target audience for this Rock, Paper, Scissors game is broad and inclusive, designed for individuals of all ages and backgrounds who enjoy casual gaming experiences. This classic game's simplicity and universal appeal make it suitable for a wide range of players. Additionally, technology enthusiasts looking to explore game development in Python, using ASCII art and libraries, will find this project a valuable resource.
+The target audience for this Rock, Paper, Scissors game is broad, designed for individuals of all ages and backgrounds who enjoy casual gaming experiences. This classic game's simplicity make it suitable for a wide range of players. Additionally, technology enthusiasts looking to explore game development in Python, using ASCII art and libraries, will find this project a valuable resource.
 
 ### User Requirements and Expectations
 
@@ -63,15 +63,15 @@ These color choices aim to enhance the user experience by improving visual disti
 
 ### Imagery
 
-Incorporating imagery has been a key aspect of the Rock, Paper, Scissors game's visual appeal. [Patrojk](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to create the game title and the instruction page title. Patrojkwas is a tool that convert text to a font in Ascii format.
+Incorporating imagery has been a key aspect of the Rock, Paper, Scissors game's visual appeal. [Patrojk](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to create the game title and the instruction page title. Patrojkwas is a tool that converts text to a font in Ascii format.
 
 ![Title ASCII](documentation/images/title.png)
 
 ![Instructions ASCII](documentation/images/instructions.png)
 
-ASCII art symbols for Rock, Paper, and Scissors hands were also used. They serve a functional purpose by making it easy for users to identify their choices and grasp the game's fundamental mechanics at a glance.
+ASCII art symbols for Rock, Paper, and Scissors hands were also used. They make it easier for users to identify their choices and grasp the game's mechanics at a glance.
 
-The careful integration of these ASCII art elements aims to enhance the overall presentation of the game, adding creativity while ensuring clarity and user-friendliness remain uncompromised.
+The integration of these ASCII art elements aims to enhance the overall presentation of the game, adding creativity while ensuring clarity and user-friendliness remain uncompromised.
 
 ## Features
 
@@ -80,7 +80,7 @@ The careful integration of these ASCII art elements aims to enhance the overall 
 On the main screen of the Rock Paper Scissors game, players are greeted with a menu offering two options:
 
 - Play: This option starts a new game.
-- How to Play: Here, players can access instructions explaining how to participate in the game.
+- How to Play: Here, players can access instructions.
 
 If a player chooses an invalid option from the menu, the system displays an error message. It then guides the player on how to make a correct selection, prompting them to choose again until a valid choice is made.
 
@@ -100,9 +100,9 @@ In the player name input section, the player is asked to enter their name. If th
 
 #### Number of Games Input
 
-Players can select to play 4, 7, or 10 games giving them flexibility in tailoring the length of their gaming session to their liking.
+Players can select to play 4, 7, or 10 games giving them flexibility in choosing the length of their gaming session.
 
-If an incorrect input is entered, a data validation check will run before allowing the program to proceed further. This validation process serves to identify any errors. In the event of wron input the system will promptly display a helpful error message, explaining the issue to the user, and guiding them on how to rectify it, ensuring a smooth and user-friendly experience.
+If an incorrect input is entered, a data validation check will run before allowing the program to proceed further. This validation process serves to identify any errors. In the event of wrong input the system will promptly display a helpful error message, explaining the issue to the user, and guiding them on how to rectify it, ensuring a smooth and user-friendly experience.
 
 ![Invalid Number of Games input](documentation/images/invalid-games-number.png)
 
@@ -112,7 +112,7 @@ The game's score system awards players 100 points for a win, deducts 50 points f
 
 ### End of game
 
-At the end of the game, the player is asked if they want to play again with a yes or no question. If they choose "yes," they are redirected to the game setup to choose the number of games for a new session. If they select "no," the game ends, and a thank you message is displayed.
+At the end of the game, the player is asked if they want to play again with a yes or no question. If they choose _yes_, they are redirected to the game setup to choose the number of games for a new session. If they select _no_, the game ends, and a thank you message is displayed.
 
 ### Future Implementations
 
@@ -144,11 +144,11 @@ Find a detailed summary of all testing procedures in the [TESTING.md](TESTING.md
 
 ## Bugs
 
-| BUGS                                                                                                                                                                                                                              | FIX                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| When attempting to initiate a new game by selecting 'y' when prompted with _Do you want to play again? (y/n)_, the game was not restarting.                                                                                       | To resolve this issue, I incorporated the following code snippet into the main function (refer to line 312), and it successfully addressed the problem: <pre>if not play_again():<br>    break</pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
-| While implementing a while loop to validate the input in the _get_player_name_ function, specifically ensuring that it was not empty or consisted solely of spaces, I encountered an issue where it wasn't functioning correctly. | To address this, I made adjustments to the if statement. I replaced the previous condition <pre>if ((player_name == "") and (player_name.count(' ') > 0)):</pre> with <pre>if player_name.strip() == "":</pre> (refer to line 34), which resolved the problem."                                                                                                                                                                                                                                                                                                                                                                                                                                |
-| The animation generated in _shoot_animation_ function didn't display properly after deploying the website.                                                                                                                        | After a code review session with my mentor, we identified the issue within the _clear_terminal_ function. To ensure cross-compatibility with different operating systems, I made updates to the _clear_terminal_ function (used within the _shoot_animation_ function), resolving the problem. Initially the _clear_terminal_ function was: <pre>def clear_terminal():<br>    """<br>    Clears the terminal.<br>    """<br>    os.system('cls&#124;&#124;clear')</pre> The updated function now is: <pre>def clear_terminal():<br>    """<br>    Clears the terminal.<br>    """<br>    if <span>os.name</span> == "nt":<br>    os.system('cls')<br>    else:<br>    os.system('clear')</pre> |
+| BUGS                                                                                                                                                                                                                              | FIX                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| When attempting to initiate a new game by selecting 'y' when prompted with _Do you want to play again? (y/n)_, the game was not restarting.                                                                                       | To resolve this issue, I incorporated the following code into the main function (refer to line 312), and it successfully addressed the problem: <pre>if not play_again():<br>    break</pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
+| While implementing a while loop to validate the input in the _get_player_name_ function (specifically ensuring that it was not empty or consisted solely of spaces) I encountered an issue where it wasn't functioning correctly. | To address this, I made adjustments to the if statement. I replaced the previous condition <pre>if ((player_name == "") and (player_name.count(' ') > 0)):</pre> with <pre>if player_name.strip() == "":</pre> (refer to line 34), which resolved the problem."                                                                                                                                                                                                                                                                                                                                                                                                                                           |
+| The animation generated in _shoot_animation_ function didn't display properly after deploying the website.                                                                                                                        | After a code review session with my mentor, he helped me to identify the issue within the _clear_terminal_ function. To ensure cross-compatibility with different operating systems, I made updates to the _clear_terminal_ function (used within the _shoot_animation_ function), resolving the problem. Initially the _clear_terminal_ function was: <pre>def clear_terminal():<br>    """<br>    Clears the terminal.<br>    """<br>    os.system('cls&#124;&#124;clear')</pre> The updated function now is: <pre>def clear_terminal():<br>    """<br>    Clears the terminal.<br>    """<br>    if <span>os.name</span> == "nt":<br>    os.system('cls')<br>    else:<br>    os.system('clear')</pre> |
 
 ## Deployment
 
@@ -166,13 +166,13 @@ In the template page click on _Use this template_ and then _Create a new reposit
 3. Provide a name for the app and select a region.
 4. Click the _Create app_ button.
 5. Navigate to the _Settings_ tab in the navigation bar.
-6. In the _Config Vars_ section, also known as environment variables, is where you would store sensitive data that needs to be kept secret, for example a creds.json file. I don't have any json for this project so I just added a _Config Var_ where key is PORT and value is 8000.
+6. In the _Config Vars_ section, also known as environment variables, is where you would store sensitive data that needs to be kept secret, for example a creds.json file. I don't have any json for this project so I just added a _Config Var_ where the key is PORT and the value is 8000.
 7. Select _Add buildpack_ and add python and nodejs making sure they are in this order.
 8. Now our project settings are done, we can go to the _Deploy_ section and choose our deployment method.
    Select Github, and then we can confirm that we want to connect to Github.
 9. Search for the Github repository name and then click _Search_. And then we can click _connect_ to link up our Heroku app to our Github repository code.
 10. Now we can set up automatic deploys, if you choose to enable this then Heroku will rebuild your app every time you push a new change to your code to Github. Or you can choose to manually deploy using the _Deploy Branch_ option here.
-11. And finally we see the _App was successfully deployed_ message and a button that take us to the deployed link.
+11. And finally we see the _App was successfully deployed_ message and a button that takes us to the deployed link.
 
 ### How to Fork the repository
 
