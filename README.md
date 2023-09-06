@@ -144,8 +144,49 @@ Find a detailed summary of all testing procedures in the [TESTING.md](TESTING.md
 
 ## Bugs
 
-| BUG                                                                                                                                                                                                                               | FIX                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
+| BUGS                                                                                                                                                                                                                              | FIX                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | When attempting to initiate a new game by selecting 'y' when prompted with _Do you want to play again? (y/n)_, the game was not restarting.                                                                                       | To resolve this issue, I incorporated the following code snippet into the main function (refer to line 312), and it successfully addressed the problem: <pre>if not play_again():<br>    break</pre>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | While implementing a while loop to validate the input in the _get_player_name_ function, specifically ensuring that it was not empty or consisted solely of spaces, I encountered an issue where it wasn't functioning correctly. | To address this, I made adjustments to the if statement. I replaced the previous condition <pre>if ((player_name == "") and (player_name.count(' ') > 0)):</pre> with <pre>if player_name.strip() == "":</pre> (refer to line 34), which resolved the problem."                                                                                                                                                                                                                                                                                                                                                                                                                                |
 | The animation generated in _shoot_animation_ function didn't display properly after deploying the website.                                                                                                                        | After a code review session with my mentor, we identified the issue within the _clear_terminal_ function. To ensure cross-compatibility with different operating systems, I made updates to the _clear_terminal_ function (used within the _shoot_animation_ function), resolving the problem. Initially the _clear_terminal_ function was: <pre>def clear_terminal():<br>    """<br>    Clears the terminal.<br>    """<br>    os.system('cls&#124;&#124;clear')</pre> The updated function now is: <pre>def clear_terminal():<br>    """<br>    Clears the terminal.<br>    """<br>    if <span>os.name</span> == "nt":<br>    os.system('cls')<br>    else:<br>    os.system('clear')</pre> |
+
+## Deployment
+
+The game has been successfully deployed on Heroku.
+
+### Code Institute Python Essentials Template
+
+This template adds in the necessary front-end files to give the users a way to interact with the project in a mock terminal on a web page, once the project is deployed.
+In the template page click on _Use this template_ and then _Create a new repository_.
+
+### Deployment on Heroku
+
+1. Log in to [Heroku](https://www.heroku.com/).
+2. From the Heroku dashboard click the _Create New App_.
+3. Provide a name for the app and select a region.
+4. Click the _Create app_ button.
+5. Navigate to the _Settings_ tab in the navigation bar.
+6. In the _Config Vars_ section, also known as environment variables, is where you would store sensitive data that needs to be kept secret, for example a creds.json file. I don't have any json for this project so I just added a _Config Var_ where key is PORT and value is 8000.
+7. Select _Add buildpack_ and add python and nodejs making sure they are in this order.
+8. Now our project settings are done, we can go to the _Deploy_ section and choose our deployment method.
+   Select Github, and then we can confirm that we want to connect to Github.
+9. Search for the Github repository name and then click _Search_. And then we can click _connect_ to link up our Heroku app to our Github repository code.
+10. Now we can set up automatic deploys, if you choose to enable this then Heroku will rebuild your app every time you push a new change to your code to Github. Or you can choose to manually deploy using the _Deploy Branch_ option here.
+11. And finally we see the _App was successfully deployed_ message and a button that take us to the deployed link.
+
+### Fork the repository
+
+1.  Go to the [GitHub repository](https://github.com/Darioc18/memory-game);
+2.  In the top-right corner of the page, click _Fork_;
+3.  Optionally type the _Repository name_ and _Description_;
+4.  Click the green button _Create fork_.
+
+### Clone The Repository
+
+1. Go to the [GitHub repository](https://github.com/Darioc18/memory-game);
+2. Above the list of files, click the green button _Code_;
+3. Choose your preferred method for cloning: HTTPS, SSH, or Github CLI. Click the copy button to copy the URL to your clipboard.
+4. Open Git Bash.
+5. Change the current working directory to the location where you want the cloned directory.
+6. Type git clone, and then paste the URL you copied earlier.
+7. Press Enter. Your local clone will be created.
