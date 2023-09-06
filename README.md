@@ -201,3 +201,7 @@ In the template page click on _Use this template_ and then _Create a new reposit
 
 - [Patrojk](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to generate the game title and the instruction page title.
 - I sourced the ASCII art hand gestures from [asciiart.eu](https://www.asciiart.eu/people/body-parts/hand-gestures)
+
+## Aknowledgments
+
+I would like to express my gratitude to my Code Institute mentor, [Aleksei Konovalov](https://github.com/lexach91), and my cohort facilitator at Code Institute Alan Bushell for their guidance and clear advice to build this project.
