@@ -174,14 +174,14 @@ In the template page click on _Use this template_ and then _Create a new reposit
 10. Now we can set up automatic deploys, if you choose to enable this then Heroku will rebuild your app every time you push a new change to your code to Github. Or you can choose to manually deploy using the _Deploy Branch_ option here.
 11. And finally we see the _App was successfully deployed_ message and a button that take us to the deployed link.
 
-### Fork the repository
+### How to Fork the repository
 
 1.  Go to the [GitHub repository](https://github.com/Darioc18/memory-game);
 2.  In the top-right corner of the page, click _Fork_;
 3.  Optionally type the _Repository name_ and _Description_;
 4.  Click the green button _Create fork_.
 
-### Clone The Repository
+### How to Clone The Repository
 
 1. Go to the [GitHub repository](https://github.com/Darioc18/memory-game);
 2. Above the list of files, click the green button _Code_;
@@ -190,3 +190,14 @@ In the template page click on _Use this template_ and then _Create a new reposit
 5. Change the current working directory to the location where you want the cloned directory.
 6. Type git clone, and then paste the URL you copied earlier.
 7. Press Enter. Your local clone will be created.
+
+## Credits
+
+### Code
+
+- [Code Institute Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template)
+
+### Media
+
+- [Patrojk](https://patorjk.com/software/taag/#p=display&f=Graffiti&t=Type%20Something%20) was used to generate the game title and the instruction page title.
+- I sourced the ASCII art hand gestures from [asciiart.eu](https://www.asciiart.eu/people/body-parts/hand-gestures)
